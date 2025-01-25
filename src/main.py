@@ -98,7 +98,7 @@ def create_workflow(selected_analysts=None):
 
     # Default to all analysts if none selected
     if selected_analysts is None:
-        selected_analysts = ["technical_analyst", "fundamentals_analyst", "sentiment_analyst", "valuation_analyst"]
+        selected_analysts = ["technical_analyst", "fundamentals_analyst", "sentiment_analyst", "valuation_analyst", "warren_buffett"]
 
     # Dictionary of all available analysts
     analyst_nodes = {
@@ -176,9 +176,11 @@ if __name__ == "__main__":
         selected_analysts = choices
         print(f"\nSelected analysts: {', '.join(Fore.GREEN + choice.title().replace('_', ' ') + Style.RESET_ALL for choice in choices)}\n")
 
-    # Create the workflow with selected analysts
-    workflow = create_workflow(selected_analysts)
-    app = workflow.compile()
+    # # Create the workflow with selected analysts
+    # workflow: StateGraph = create_workflow(selected_analysts)
+    # app = workflow.compile()
+
+    # print(app.get_graph().draw_mermaid())
 
     # Validate dates if provided
     if args.start_date:
